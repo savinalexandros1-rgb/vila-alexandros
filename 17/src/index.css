@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-forest hover:bg-forest-dark text-white font-display font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-gold hover:bg-gold-dark text-white font-display font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-forest text-forest hover:bg-forest hover:text-white font-display font-semibold rounded-lg transition-all duration-300;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .heading-1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight;
+  }
+  
+  .heading-2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight;
+  }
+  
+  .heading-3 {
+    @apply text-2xl md:text-3xl font-display font-bold leading-tight;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-forest focus:ring-2 focus:ring-forest/20 outline-none transition-all duration-200;
+  }
+  
+  .textarea-field {
+    @apply w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-forest focus:ring-2 focus:ring-forest/20 outline-none transition-all duration-200 resize-none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .gradient-forest {
+    background: linear-gradient(135deg, #2C5F2D 0%, #1E4620 100%);
+  }
+  
+  .gradient-gold {
+    background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+  }
+  
+  .bg-pattern {
+    background-image: 
+      linear-gradient(30deg, rgba(44, 95, 45, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(44, 95, 45, 0.05) 87.5%, rgba(44, 95, 45, 0.05)),
+      linear-gradient(150deg, rgba(44, 95, 45, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(44, 95, 45, 0.05) 87.5%, rgba(44, 95, 45, 0.05)),
+      linear-gradient(30deg, rgba(44, 95, 45, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(44, 95, 45, 0.05) 87.5%, rgba(44, 95, 45, 0.05)),
+      linear-gradient(150deg, rgba(44, 95, 45, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(44, 95, 45, 0.05) 87.5%, rgba(44, 95, 45, 0.05));
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2C5F2D;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1E4620;
+}
+
+/* Loading animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
