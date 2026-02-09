@@ -1,13 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Mountain, Phone, Mail, MapPin, Calendar, Users, Home,
-  Wifi, Flame, UtensilsCrossed, Car, ShieldCheck,
-  TreePine, Star, ChevronDown, Menu, X, Facebook, Instagram,
-  MessageCircle, CheckCircle, Clock, Ban, Volume2, Bed,
-  Bath, ArrowRight, MapPinned, Camera
-} from 'lucide-react';
-
-// Import components
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -25,34 +16,29 @@ import WhatsAppFloat from './components/WhatsAppFloat';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   return (
     <div className="relative">
       <Header isScrolled={isScrolled} />
-      
       <main>
         <Hero />
         <About />
-        <Rooms />
+        <Pricing />
         <Gallery />
+        <Rooms />
         <Facilities />
         <Attractions />
         <Rules />
-        <Pricing />
         <Booking />
         <FAQ />
         <Contact />
       </main>
-      
       <Footer />
       <WhatsAppFloat />
     </div>
