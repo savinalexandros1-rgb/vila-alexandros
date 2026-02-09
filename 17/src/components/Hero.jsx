@@ -16,7 +16,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-custom text-center text-white pt-24 md:pt-0">
+      <div className="relative z-10 container-custom text-center text-white pt-32 md:pt-0">
         {/* Price Banner */}
         <div className="inline-flex items-center space-x-2 bg-gold/90 text-white px-6 py-3 rounded-full mb-4 animate-fadeInUp opacity-0 stagger-1">
           <Tag className="w-5 h-5" />
