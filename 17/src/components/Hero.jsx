@@ -40,9 +40,8 @@ const Hero = () => {
         </p>
 
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 text-white/90 leading-relaxed animate-fadeInUp opacity-0 stagger-5">
-          Vilă pentru 14-15 persoane la 1150m altitudine • Ideală pentru petreceri și evenimente<br />
-          7 Camere Duble | Terase Panoramice | Grătar | Parcare Gratuită
-        </p>
+   Terase Panoramice | Grătar | Parcare Gratuită
+</p>
 
         {/* Stats */}
         <div className="flex flex-wrap items-center justify-center gap-8 mb-12 animate-fadeInUp opacity-0 stagger-5">
