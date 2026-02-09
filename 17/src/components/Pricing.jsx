@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Star, Sparkles, CheckCircle, Users } from 'lucide-react';
+import { Calendar, Star, Sparkles, CheckCircle } from 'lucide-react';
 
 const Pricing = () => {
   const pricing = [
@@ -8,6 +8,7 @@ const Pricing = () => {
       type: 'MIDWEEK',
       days: 'Luni - Joi',
       price: '1300',
+      perPerson: '87',
       color: 'from-forest to-forest-dark',
       popular: false
     },
@@ -16,6 +17,7 @@ const Pricing = () => {
       type: 'WEEKEND',
       days: 'Vineri - Duminică',
       price: '1500',
+      perPerson: '100',
       color: 'from-gold to-gold-dark',
       popular: true
     },
@@ -24,6 +26,7 @@ const Pricing = () => {
       type: 'SĂRBĂTORI',
       days: 'Evenimente Speciale',
       price: 'La cerere',
+      perPerson: null,
       color: 'from-wood to-wood-dark',
       popular: false
     }
@@ -53,17 +56,6 @@ const Pricing = () => {
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Închiriere completă a Vilei Alexandros
           </p>
-        </div>
-
-        {/* Per Person Fee Notice */}
-        <div className="max-w-4xl mx-auto mb-8">
-          <div className="bg-gradient-to-r from-gold/20 to-gold/10 rounded-xl p-6 border-2 border-gold/30 flex items-center justify-center space-x-4">
-            <Users className="w-8 h-8 text-gold" />
-            <div className="text-center">
-              <p className="text-lg font-bold text-gray-900">De la 87 RON / persoană / noapte</p>
-              <p className="text-sm text-gray-600">Se adaugă la tariful de bază</p>
-            </div>
-          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
@@ -101,10 +93,17 @@ const Pricing = () => {
                 <p className="text-center text-gray-600 font-medium mb-2">
                   Vila întreagă
                 </p>
-                <p className="text-center text-sm text-gold font-semibold mb-4">
-                  de la 87 RON/persoană/noapte
-                </p>
-                <a
+                {plan.perPerson && (
+                  <p className="text-center text-sm text-gold font-semibold mb-4">
+                    de la {plan.perPerson} RON/persoană/noapte
+                  </p>
+                )}
+                {!plan.perPerson && (
+                  <p className="text-center text-sm text-gray-500 font-semibold mb-4">
+                    preț la cerere
+                  </p>
+                )}
+                
                   href="#rezervare"
                   className="btn-primary w-full text-center"
                 >
