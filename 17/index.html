@@ -66,7 +66,27 @@
     <meta name="theme-color" content="#2C5F2D" />
   </head>
   <body>
-    <div id="root"></div>
+<div id="root"></div>
+
+<!-- Netlify Forms - hidden -->
+<form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <input name="bot-field" />
+  <input name="name" />
+  <input name="email" />
+  <input name="phone" />
+  <textarea name="message"></textarea>
+</form>
+
+<form name="rezervare" netlify netlify-honeypot="bot-field" hidden>
+  <input name="bot-field" />
+  <input name="checkin" />
+  <input name="checkout" />
+  <input name="guests" />
+  <input name="name" />
+  <input name="email" />
+  <input name="phone" />
+  <textarea name="message"></textarea>
+</form>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
