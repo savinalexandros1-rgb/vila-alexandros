@@ -8,12 +8,51 @@ const Contact = () => {
     phone: '',
     message: ''
   });
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Mesajul tău a fost trimis! Te vom contacta în curând.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    
+    const form = e.target;
+    const data = new FormData(form);
+    
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString()
+      });
+      setSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      alert('A apărut o eroare. Te rugăm să ne contactezi telefonic.');
+    }
   };
+
+  if (submitted) {
+    return (
+      <section id="contact" className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center py-16">
+            <div className="w-20 h-20 bg-forest rounded-full flex items-center justify-center mx-auto mb-6">
+              <Send className="w-10 h-10 text-white" />
+            </div>
+            <h2 className="heading-2 text-forest mb-4">Mulțumim!</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Mesajul tău a fost trimis cu succes.<br />
+              Te vom contacta în cel mai scurt timp posibil.
+            </p>
+            <button 
+              onClick={() => setSubmitted(false)}
+              className="btn-primary"
+            >
+              Trimite alt mesaj
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="contact" className="section-padding bg-gray-50">
@@ -37,13 +76,28 @@ const Contact = () => {
             <h3 className="text-2xl font-display font-bold text-forest mb-6">
               Trimite-ne un mesaj
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              name="contact" 
+              method="POST" 
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={handleSubmit} 
+              className="space-y-6"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden">
+                <label>
+                  Nu completa: <input name="bot-field" />
+                </label>
+              </p>
+              
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Nume complet *
                 </label>
                 <input
                   type="text"
+                  name="name"
                   required
                   className="input-field"
                   value={formData.name}
@@ -58,6 +112,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   required
                   className="input-field"
                   value={formData.email}
@@ -72,6 +127,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="tel"
+                  name="phone"
                   className="input-field"
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
@@ -84,6 +140,7 @@ const Contact = () => {
                   Mesaj *
                 </label>
                 <textarea
+                  name="message"
                   required
                   rows="5"
                   className="textarea-field"
@@ -139,7 +196,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-display font-bold text-gray-900 mb-1">Adresă</h4>
-                  <a
+                  
                     href="https://maps.app.goo.gl/XmKSenDgY9sMRpw78"
                     target="_blank"
                     rel="noopener noreferrer"
