@@ -17,17 +17,16 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container-custom text-center text-white pt-32 md:pt-0">
-        {/* Price Banner */}
-        <div className="inline-flex items-center space-x-2 bg-gold/90 text-white px-6 py-3 rounded-full mb-4 animate-fadeInUp opacity-0 stagger-1">
+       {/* Price Banner - hidden on mobile */}
+        <div className="hidden md:inline-flex items-center space-x-2 bg-gold/90 text-white px-6 py-3 rounded-full mb-4 animate-fadeInUp opacity-0 stagger-1">
           <Tag className="w-5 h-5" />
           <span className="font-semibold">De la 1300 RON/noapte | de la 87 RON/persoană</span>
         </div>
         
-        {/* Check-in/out info */}
-        <div className="text-white/80 text-sm mb-6 animate-fadeInUp opacity-0 stagger-1">
+        {/* Check-in/out info - hidden on mobile */}
+        <div className="hidden md:block text-white/80 text-sm mb-6 animate-fadeInUp opacity-0 stagger-1">
           Check-in / Check-out flexibil în funcție de disponibilitate
         </div>
-
         {/* Main Heading - BIGGER */}
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white animate-fadeInUp opacity-0 stagger-2 tracking-wide">
           VILA ALEXANDROS
