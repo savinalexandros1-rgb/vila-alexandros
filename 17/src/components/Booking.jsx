@@ -36,7 +36,7 @@ const Booking = () => {
       }
       setWeekendNights(weekendCount);
       setWeekdayNights(weekdayCount);
-      const total = (weekendCount * 1500) + (weekdayCount * 1300);
+      const total = (weekendCount * 1500) + (weekdayCount * 1200);
       setEstimatedPrice(total);
     }
   };
@@ -112,11 +112,11 @@ const Booking = () => {
                   <h3 className="font-display font-bold text-lg text-gray-900 mb-4">Estimare Preț</h3>
                   <div className="space-y-2 text-gray-700">
                     <div className="flex justify-between"><span>Număr nopți:</span><span className="font-semibold">{nights}</span></div>
-                    {weekdayNights > 0 && <div className="flex justify-between text-sm"><span>Nopți în săptămână ({weekdayNights} x 1300 RON):</span><span className="font-semibold">{weekdayNights * 1300} RON</span></div>}
-                    {weekendNights > 0 && <div className="flex justify-between text-sm"><span>Nopți weekend ({weekendNights} x 1500 RON):</span><span className="font-semibold">{weekendNights * 1500} RON</span></div>}
+                    {weekdayNights > 0 && <div className="flex justify-between text-sm"><span>Nopți Luni-Joi ({weekdayNights} x 1200 RON):</span><span className="font-semibold">{weekdayNights * 1200} RON</span></div>}
+                    {weekendNights > 0 && <div className="flex justify-between text-sm"><span>Nopți Weekend ({weekendNights} x 1500 RON):</span><span className="font-semibold">{weekendNights * 1500} RON</span></div>}
                     <div className="h-px bg-gray-300 my-2"></div>
                     <div className="flex justify-between text-lg font-bold text-forest"><span>TOTAL ESTIMAT:</span><span>{estimatedPrice} RON</span></div>
-                    <p className="text-xs text-gray-600 mt-2">*Weekend = Vineri și Sâmbătă (1500 RON/noapte)<br />*Restul săptămânii = 1300 RON/noapte</p>
+                    <p className="text-xs text-gray-600 mt-2">*Weekend = Vineri și Sâmbătă (1500 RON/noapte)<br />*Luni - Joi = 1200 RON/noapte</p>
                   </div>
                 </div>
               )}
