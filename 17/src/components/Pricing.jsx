@@ -4,11 +4,11 @@ import { Calendar, Star, Sparkles, CheckCircle } from 'lucide-react';
 const Pricing = () => {
   const pricing = [
     {
-      icon: Calendar,
-      type: 'MIDWEEK',
-      days: 'Luni - Joi',
-      price: '1300',
-      perPerson: '87',
+  icon: Calendar,
+  type: 'LUNI - JOI',
+  days: 'Tarif săptămânal',
+  price: '1200',
+  perPerson: '80',
       color: 'from-forest to-forest-dark',
       popular: false
     },
