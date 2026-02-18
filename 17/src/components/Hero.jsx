@@ -16,18 +16,14 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-     <div className="relative z-10 container-custom text-center text-white pt-16 md:pt-0">
-       {/* Price Banner - hidden on mobile */}
-        <div className="hidden md:inline-flex items-center space-x-2 bg-gold/90 text-white px-6 py-3 rounded-full mb-4 animate-fadeInUp opacity-0 stagger-1">
-          <Tag className="w-5 h-5" />
-          <span className="font-semibold">De la 1200 RON/noapte | de la 80 RON/persoană</span>
-        </div>
+      <div className="relative z-10 container-custom text-center text-white pt-16 md:pt-0">
         
         {/* Check-in/out info - hidden on mobile */}
         <div className="hidden md:block text-white/80 text-sm mb-6 animate-fadeInUp opacity-0 stagger-1">
           Check-in / Check-out flexibil în funcție de disponibilitate
         </div>
-        {/* Main Heading - BIGGER */}
+
+        {/* Main Heading */}
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white animate-fadeInUp opacity-0 stagger-2 tracking-wide">
           VILA ALEXANDROS
         </h1>
@@ -39,8 +35,8 @@ const Hero = () => {
         </p>
 
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 text-white/90 leading-relaxed animate-fadeInUp opacity-0 stagger-5">
-   Terase Panoramice | Grătar | Parcare Gratuită
-</p>
+          Terase Panoramice | Grătar | Parcare Gratuită
+        </p>
 
         {/* Stats */}
         <div className="flex flex-wrap items-center justify-center gap-8 mb-12 animate-fadeInUp opacity-0 stagger-5">
@@ -60,30 +56,36 @@ const Hero = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fadeInUp opacity-0 stagger-5">
-          <a
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 animate-fadeInUp opacity-0 stagger-5">
+          
             href="#rezervare"
             className="btn-primary bg-gold hover:bg-gold-dark text-white shadow-2xl"
           >
             REZERVĂ ACUM
           </a>
-          <a
+          
             href="tel:0747095063"
             className="btn-outline border-white text-white hover:bg-white hover:text-forest"
           >
             📞 0747 095 063
           </a>
-          <a
+          
             href="#tarife"
             className="btn-outline border-white text-white hover:bg-white hover:text-forest"
           >
             VEZI TARIFE
           </a>
         </div>
+
+        {/* Price Banner - sub butoane */}
+        <div className="inline-flex items-center space-x-2 bg-gold/90 text-white px-6 py-3 rounded-full animate-fadeInUp opacity-0 stagger-5">
+          <Tag className="w-5 h-5" />
+          <span className="font-semibold">De la 1200 RON/noapte | de la 80 RON/persoană</span>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
-      <a
+      
         href="#despre"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce cursor-pointer"
       >
