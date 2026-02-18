@@ -165,7 +165,7 @@ const Booking = () => {
                 </a>
               </div>
             </div>
-            <div className="bg-gold/20 rounded-2xl p-8">
+            <div className="bg-white rounded-2xl shadow-2xl p-8">
               <div className="space-y-4">
                 <div className="flex items-start space-x-3"><CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" /><div><h4 className="font-bold text-gray-900 mb-1">Răspuns Rapid</h4><p className="text-sm text-gray-700">Răspundem la toate cererile în maximum 24 de ore</p></div></div>
                 <div className="flex items-start space-x-3"><CheckCircle className="w-6 h-6 text-gold flex-shrink-0 mt-1" /><div><h4 className="font-bold text-gray-900 mb-1">Flexibilitate</h4><p className="text-sm text-gray-700">Discutăm împreună condițiile potrivite pentru tine</p></div></div>
