@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-forest-dark/70 via-forest/60 to-wood-dark/70"></div>
         <div className="absolute inset-0 bg-pattern opacity-10"></div>
       </div>
-      <div className="relative z-10 container-custom text-center text-white">
+      <div className="relative z-10 container-custom text-center text-white pt-24 md:pt-0">
         <p className="text-xl md:text-2xl lg:text-3xl font-display mb-8 text-white/95 animate-fadeInUp opacity-0 stagger-1">Relaxare cu Vedere la Munte</p>
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 text-white/90 leading-relaxed animate-fadeInUp opacity-0 stagger-2">Terase Panoramice | Grătar | Parcare Gratuită</p>
         <div className="flex flex-wrap items-center justify-center gap-8 mb-12 animate-fadeInUp opacity-0 stagger-3">
