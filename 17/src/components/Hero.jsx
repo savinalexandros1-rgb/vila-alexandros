@@ -20,7 +20,7 @@ const Hero = () => {
        {/* Price Banner - hidden on mobile */}
         <div className="hidden md:inline-flex items-center space-x-2 bg-gold/90 text-white px-6 py-3 rounded-full mb-4 animate-fadeInUp opacity-0 stagger-1">
           <Tag className="w-5 h-5" />
-          <span className="font-semibold">De la 1300 RON/noapte | de la 87 RON/persoană</span>
+          <span className="font-semibold">De la 1200 RON/noapte | de la 80 RON/persoană</span>
         </div>
         
         {/* Check-in/out info - hidden on mobile */}
