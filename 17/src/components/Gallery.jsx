@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [filter, setFilter] = useState('toate');
+  const [showAllMobile, setShowAllMobile] = useState(false);
 
   const categories = ['toate', 'camere', 'spatii', 'facilitati', 'exterior', 'vedere'];
 
@@ -33,24 +34,17 @@ const Gallery = () => {
     { id: 23, src: '/images/VilaAlexandros-0070.jpg', category: 'exterior', alt: 'Curte cu leagăn' },
   ];
 
-  const filteredImages = filter === 'toate' 
-    ? images 
-    : images.filter(img => img.category === filter);
-
+  const filteredImages = filter === 'toate' ? images : images.filter(img => img.category === filter);
   const currentIndex = selectedImage ? filteredImages.findIndex(img => img.id === selectedImage.id) : -1;
 
   const goToPrevious = (e) => {
     e.stopPropagation();
-    if (currentIndex > 0) {
-      setSelectedImage(filteredImages[currentIndex - 1]);
-    }
+    if (currentIndex > 0) setSelectedImage(filteredImages[currentIndex - 1]);
   };
 
   const goToNext = (e) => {
     e.stopPropagation();
-    if (currentIndex < filteredImages.length - 1) {
-      setSelectedImage(filteredImages[currentIndex + 1]);
-    }
+    if (currentIndex < filteredImages.length - 1) setSelectedImage(filteredImages[currentIndex + 1]);
   };
 
   return (
@@ -60,104 +54,57 @@ const Gallery = () => {
           <div className="inline-block px-6 py-2 bg-forest/10 rounded-full mb-4">
             <span className="text-forest font-semibold">Galerie</span>
           </div>
-          <h2 className="heading-2 text-forest mb-6">
-            Galerie Foto
-          </h2>
+          <h2 className="heading-2 text-forest mb-6">Galerie Foto</h2>
           <div className="h-1 w-24 bg-gold mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Explorează spațiile Vilei Alexandros - 23 de imagini cu vila și priveliștea spectaculoasă
-          </p>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">Explorează spațiile Vilei Alexandros - 23 de imagini cu vila și priveliștea spectaculoasă</p>
         </div>
 
         {/* Filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-6 py-2 rounded-full font-medium transition-all ${
-                filter === cat
-                  ? 'bg-forest text-white shadow-lg'
-                  : 'bg-white text-gray-700 hover:bg-gray-100'
-              }`}
-            >
-              {cat === 'toate' ? 'Toate' : 
-               cat === 'camere' ? 'Camere' :
-               cat === 'spatii' ? 'Spații Comune' :
-               cat === 'facilitati' ? 'Facilități' :
-               cat === 'exterior' ? 'Exterior' :
-               cat === 'vedere' ? 'Vedere' : cat}
+            <button key={cat} onClick={() => { setFilter(cat); setShowAllMobile(false); }} className={`px-6 py-2 rounded-full font-medium transition-all ${filter === cat ? 'bg-forest text-white shadow-lg' : 'bg-white text-gray-700 hover:bg-gray-100'}`}>
+              {cat === 'toate' ? 'Toate' : cat === 'camere' ? 'Camere' : cat === 'spatii' ? 'Spații Comune' : cat === 'facilitati' ? 'Facilități' : cat === 'exterior' ? 'Exterior' : cat === 'vedere' ? 'Vedere' : cat}
             </button>
           ))}
         </div>
 
-        {/* Gallery Grid */}
+        {/* Gallery Grid - Desktop: toate, Mobile: 6 sau toate */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredImages.map((image) => (
+          {filteredImages.map((image, index) => (
             <div
               key={image.id}
               onClick={() => setSelectedImage(image)}
-              className="relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer group"
+              className={`relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer group ${!showAllMobile && index >= 6 ? 'hidden sm:block' : ''}`}
             >
-              <img 
-                src={image.src} 
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-              />
+              <img src={image.src} alt={image.alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
               <div className="absolute inset-0 bg-forest/0 group-hover:bg-forest/60 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold text-center px-4">
-                  {image.alt}
-                </span>
+                <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold text-center px-4">{image.alt}</span>
               </div>
             </div>
           ))}
         </div>
 
+        {/* Show More Button - doar pe mobil */}
+        {!showAllMobile && filteredImages.length > 6 && (
+          <div className="mt-8 text-center sm:hidden">
+            <button onClick={() => setShowAllMobile(true)} className="inline-flex items-center space-x-2 bg-forest text-white px-8 py-3 rounded-full font-semibold hover:bg-forest-dark transition-colors">
+              <span>Vezi toate cele {filteredImages.length} poze</span>
+              <ChevronDown className="w-5 h-5" />
+            </button>
+          </div>
+        )}
+
         {/* Lightbox */}
         {selectedImage && (
-          <div
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedImage(null)}
-          >
-            <button
-              className="absolute top-4 right-4 text-white hover:text-gold transition-colors z-10"
-              onClick={() => setSelectedImage(null)}
-            >
-              <X className="w-8 h-8" />
-            </button>
-            
-            {/* Previous Button */}
-            {currentIndex > 0 && (
-              <button
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gold transition-colors z-10 bg-black/50 rounded-full p-2"
-                onClick={goToPrevious}
-              >
-                <ChevronLeft className="w-8 h-8" />
-              </button>
-            )}
-            
-            {/* Next Button */}
-            {currentIndex < filteredImages.length - 1 && (
-              <button
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gold transition-colors z-10 bg-black/50 rounded-full p-2"
-                onClick={goToNext}
-              >
-                <ChevronRight className="w-8 h-8" />
-              </button>
-            )}
-
+          <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4" onClick={() => setSelectedImage(null)}>
+            <button className="absolute top-4 right-4 text-white hover:text-gold transition-colors z-10" onClick={() => setSelectedImage(null)}><X className="w-8 h-8" /></button>
+            {currentIndex > 0 && (<button className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gold transition-colors z-10 bg-black/50 rounded-full p-2" onClick={goToPrevious}><ChevronLeft className="w-8 h-8" /></button>)}
+            {currentIndex < filteredImages.length - 1 && (<button className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gold transition-colors z-10 bg-black/50 rounded-full p-2" onClick={goToNext}><ChevronRight className="w-8 h-8" /></button>)}
             <div className="max-w-5xl max-h-[90vh] w-full" onClick={(e) => e.stopPropagation()}>
-              <img 
-                src={selectedImage.src} 
-                alt={selectedImage.alt}
-                className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-              />
+              <img src={selectedImage.src} alt={selectedImage.alt} className="w-full h-auto max-h-[80vh] object-contain rounded-lg" />
               <div className="mt-4 text-center">
                 <p className="text-white font-semibold text-lg">{selectedImage.alt}</p>
-                <p className="text-gray-400 text-sm mt-1">
-                  {currentIndex + 1} / {filteredImages.length}
-                </p>
+                <p className="text-gray-400 text-sm mt-1">{currentIndex + 1} / {filteredImages.length}</p>
               </div>
             </div>
           </div>
