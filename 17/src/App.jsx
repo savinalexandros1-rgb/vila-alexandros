@@ -27,17 +27,17 @@ function App() {
     <div className="relative">
       <Header isScrolled={isScrolled} />
       <main>
-        <Hero />
-        <About />
-        <Pricing />
-        <Gallery />
-        <Rooms />
-        <Facilities />
-        <Attractions />
-        <Rules />
-        <Booking />
-        <FAQ />
-        <Contact />
+       <Hero />
+<About />
+<Pricing />
+<Gallery />
+<Booking />
+<Rooms />
+<Amenities />
+<Attractions />
+<Rules />
+<FAQ />
+<Contact />
       </main>
       <Footer />
       <WhatsAppFloat />
