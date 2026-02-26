@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, Mountain, Users, Tag } from 'lucide-react';
+import { ChevronDown, Mountain, Users, Tag, Calendar } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -20,9 +20,11 @@ const Hero = () => {
           <div className="flex items-center space-x-2 text-white"><span className="text-lg font-semibold">Bușteni, Valea Prahovei</span></div>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 animate-fadeInUp opacity-0 stagger-4">
-          <a href="#rezervare" className="btn-primary bg-gold hover:bg-gold-dark text-white shadow-2xl">REZERVĂ ACUM</a>
+          <a href="#rezervare" className="btn-primary bg-gold hover:bg-gold-dark text-white shadow-2xl flex items-center gap-2">
+            <Calendar className="w-5 h-5" />
+            VERIFICĂ DISPONIBILITATEA
+          </a>
           <a href="tel:0747095063" className="btn-outline border-white text-white hover:bg-white hover:text-forest">📞 0747 095 063</a>
-          <a href="#tarife" className="btn-outline border-white text-white hover:bg-white hover:text-forest">VEZI TARIFE</a>
         </div>
         <div className="inline-flex items-center space-x-2 bg-gold/90 text-white px-6 py-3 rounded-full mb-3 animate-fadeInUp opacity-0 stagger-5">
           <Tag className="w-5 h-5" />
