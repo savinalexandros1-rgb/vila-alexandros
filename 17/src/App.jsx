@@ -16,6 +16,7 @@ import WhatsAppFloat from './components/WhatsAppFloat';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -23,21 +24,22 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   return (
     <div className="relative">
       <Header isScrolled={isScrolled} />
       <main>
-       <Hero />
-<About />
-<Pricing />
-<Gallery />
-<Booking />
-<Rooms />
-<Amenities />
-<Attractions />
-<Rules />
-<FAQ />
-<Contact />
+        <Hero />
+        <About />
+        <Pricing />
+        <Gallery />
+        <Booking />
+        <Rooms />
+        <Facilities />
+        <Attractions />
+        <Rules />
+        <FAQ />
+        <Contact />
       </main>
       <Footer />
       <WhatsAppFloat />
