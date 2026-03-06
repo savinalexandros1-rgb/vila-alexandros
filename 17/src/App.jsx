@@ -13,10 +13,10 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
+import Blog from './components/Blog';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -24,7 +24,6 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   return (
     <div className="relative">
       <Header isScrolled={isScrolled} />
@@ -37,6 +36,7 @@ function App() {
         <Rooms />
         <Facilities />
         <Attractions />
+        <Blog />
         <Rules />
         <FAQ />
         <Contact />
