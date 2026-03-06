@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, Mountain, Users, Tag, Calendar } from 'lucide-react';
+import { ChevronDown, Mountain, Users, Tag, Calendar, MapPin } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -25,6 +25,10 @@ const Hero = () => {
             VERIFICĂ DISPONIBILITATEA
           </a>
           <a href="tel:0747095063" className="btn-outline border-white text-white hover:bg-white hover:text-forest">📞 0747 095 063</a>
+          <a href="#blog" className="btn-outline border-white text-white hover:bg-white hover:text-forest flex items-center gap-2">
+            <MapPin className="w-5 h-5" />
+            DESCOPERĂ ZONA
+          </a>
         </div>
         <div className="inline-flex items-center space-x-2 bg-gold/90 text-white px-6 py-3 rounded-full mb-3 animate-fadeInUp opacity-0 stagger-5">
           <Tag className="w-5 h-5" />
